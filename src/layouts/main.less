@@ -1,0 +1,138 @@
+@import '~antd/dist/antd.less';
+@import '../theme.less';
+
+@margin-auto: 0 auto;
+//Sidebar
+.main-sidebar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.user-info {
+  padding: 15px 20px;
+  width: 100%;
+  clear: both;
+}
+
+.sidebar-avatar {
+  display: inline-block;
+  transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
+    margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.main-sidebar.ant-layout-sider-collapsed .user-info {
+  padding: 15px 8px;
+}
+
+.user-info .username {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 110px;
+  white-space: nowrap;
+  margin-left: 10px;
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.main-sidebar.ant-layout-sider-collapsed .user-info .username {
+  display: inline-block;
+  max-width: 0;
+  opacity: 0;
+  margin: 0;
+}
+
+.main-sidebar.ant-layout-sider-collapsed .main-menu {
+  width: 56px;
+}
+
+.main-menu.ant-menu-inline-collapsed > .ant-menu-item {
+  padding: 0 20px !important;
+}
+
+.sidebar-toggle-cont {
+  text-align: center;
+}
+
+.sidebar-toggle {
+  font-size: 20px;
+  padding: 8px;
+  color: @primary-color;
+}
+
+.sidebar-toggle:hover {
+  color: @link-hover-color;
+}
+
+.fixed-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: auto;
+  box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+  z-index: 3;
+}
+
+.layout-has-fixed-sidebar {
+  transition-duration: 100ms;
+  transition-property: margin-left;
+  margin-left: 200px;
+  min-height: 100vh;
+}
+
+.layout-has-fixed-sidebar.sidebar-collapsed {
+  margin-left: 56px;
+  transition-duration: 200ms;
+  transition-property: margin-left;
+}
+
+.main-content {
+  background: @background-color-base;
+  overflow: auto;
+}
+
+.logo-cont {
+  padding: 15px;
+  position: absolute;
+  bottom: 0;
+}
+
+.logo-cont svg {
+  width: 100%;
+  height: 32px;
+}
+
+.main-sidebar.ant-layout-sider-collapsed .logo-cont {
+  padding: 15px 12px;
+  text-align: center;
+}
+
+.main-sidebar.ant-layout-sider-collapsed .logo-cont svg {
+  max-width: 32px;
+}
+
+.header-banner {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(90deg, #74e8d0 0%, @primary-color 100%);
+  z-index: 1;
+}
+
+.content-wrapper {
+  padding: 60px 30px 30px 30px;
+  z-index: 2;
+  position: relative;
+}
+
+.icon svg {
+  width: 20px;
+  height: auto;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}

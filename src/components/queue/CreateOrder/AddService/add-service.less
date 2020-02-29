@@ -1,0 +1,38 @@
+@import '../.././../../theme';
+
+.drawer-add-service {
+  .ant-drawer-body {
+    padding: 0;
+  }
+
+  .add-services-list {
+    .ant-table-body {
+      .ant-table-row {
+        border: none;
+
+        td {
+          border: none;
+        }
+      }
+
+      .ant-table-row:nth-child(even) {
+        td {
+          background: @background-color-base;
+        }
+      }
+
+      .ant-table-row:hover {
+        cursor: pointer;
+
+        td {
+          background: @link-hover-color;
+          color: #fff !important;
+
+          span {
+            color: #fff !important;
+          }
+        }
+      }
+    }
+  }
+}

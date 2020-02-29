@@ -1,0 +1,179 @@
+@import '~antd/dist/antd.less';
+@import './theme.less';
+@import (css)
+  url('https://fonts.googleapis.com/css?family=Rubik:300,400,500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Rubik', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.white-container {
+  background: @white;
+  border-radius: @border-radius-base;
+  box-shadow: @box-shadow-base;
+}
+
+.content-header {
+  padding: @padding-md @common-horizontal-padding-base;
+  border-bottom: 1px solid @border-color-base;
+  font-weight: @normal-font-weight;
+}
+
+.content-header h1.ant-typography,
+.ant-drawer-title h1.ant-typography,
+.content-title {
+  color: @primary-color;
+  font-size: @font-size-title;
+  line-height: @line-height-title;
+  margin-bottom: 0;
+  font-weight: @normal-font-weight;
+  .anticon {
+    margin-right: 10px;
+  }
+}
+
+.content-body {
+  padding: @common-horizontal-padding-base;
+}
+
+.content-footer {
+  padding: 30px @common-horizontal-padding-base;
+}
+
+button {
+  &.ant-btn {
+    &.med {
+      font-size: 16px;
+      text-transform: uppercase;
+      padding: 10px 45px;
+      font-weight: 500;
+    }
+
+    &.ant-btn-primary {
+      &.btn-rounded {
+        border-radius: 50px;
+      }
+    }
+
+    &.ant-btn-secondary {
+      color: @primary-color;
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.drawer-footer {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='number'],
+textarea,
+.ant-select-single:not(.ant-select-customize-input) div.ant-select-selector,
+div.ant-picker,
+span.ant-input-search,
+div.ant-input-number {
+  background: #f2f2f2;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+
+div.ant-input-number {
+  width: 150px;
+}
+
+.not-gray-input,
+span.ant-input-search input {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.ant-table thead > tr > th {
+  font-size: @font-size-title;
+  color: @text-color-secondary !important;
+  text-transform: uppercase;
+  line-height: @line-height-title;
+  background: none !important;
+  border-right: 0;
+  border-top: 1px solid @border-color-base;
+  border-bottom: 1px solid @border-color-base !important;
+}
+
+/** Utilities **/
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: @primary-color;
+}
+
+.pull-right {
+  float: right;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mr-base {
+  margin-right: @margin-horizontal-base;
+}
+
+.mt-base {
+  margin-top: @margin-vertical-base;
+}
+
+.mb-base {
+  margin-bottom: @margin-vertical-base !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.base-padding {
+  padding: 16px @common-horizontal-padding-base;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pl-base {
+  padding-left: @common-horizontal-padding-base;
+}
+
+.pr-base {
+  padding-right: @common-horizontal-padding-base;
+}
+
+.no-border {
+  border: none;
+}
+
+.link-hover-color {
+  color: @link-hover-color;
+}

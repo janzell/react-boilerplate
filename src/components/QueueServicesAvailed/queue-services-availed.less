@@ -1,0 +1,43 @@
+@import '../../theme';
+
+.ant-typography.queue-services-title {
+  color: @text-color-secondary;
+  font-size: 20px;
+  line-height: @line-height-title;
+  font-weight: 500;
+  padding: @common-horizontal-padding-base;
+  margin-bottom: 0;
+}
+
+.queue-services-list {
+  padding: 16px @common-horizontal-padding-base;
+  max-height: 225px;
+  overflow-y: auto;
+
+  .ant-list-split .ant-list-item {
+    border-bottom: none;
+    color: @text-color-primary;
+  }
+}
+
+.queue-services-summary {
+  padding: 16px @common-horizontal-padding-base;
+
+  .ant-descriptions-item.bold .ant-descriptions-item-label {
+    font-weight: bold;
+    color: @text-color-primary;
+  }
+
+  .ant-descriptions-item-content {
+    float: right;
+    color: @text-color-primary;
+  }
+}
+
+.queue-services-amt-due {
+  padding-top: 16px;
+
+  .ant-descriptions-item {
+    padding-bottom: 0;
+  }
+}
