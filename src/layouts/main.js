@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { Avatar, Layout, Menu } from "antd";
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  DashboardOutlined,
-  OrderedListOutlined
-} from "@ant-design/icons";
+import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import "./main.less";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as LogoSm } from "../assets/logo-sm.svg";
+import { BrowserRouter as Router } from "react-router-dom";
+import routes from "../routes";
 
 const MainLayout = props => {
   const { children } = props;
@@ -16,6 +13,14 @@ const MainLayout = props => {
   const [collapsed, setCollapsed] = useState(false);
   const toggleSideBar = () => {
     setCollapsed(!collapsed);
+  };
+  const renderMenuList = () => {
+    return routes.info.map(route => (
+      <Menu.Item key={route.path}>
+        <route.icon></route.icon>
+        <span>{route.title}</span>
+      </Menu.Item>
+    ));
   };
 
   return (
@@ -52,16 +57,9 @@ const MainLayout = props => {
           className="main-menu"
           theme="light"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["dashboard"]}
         >
-          <Menu.Item key="1">
-            <DashboardOutlined />
-            <span>Dashboard</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <OrderedListOutlined />
-            <span>Queue</span>
-          </Menu.Item>
+          {renderMenuList()}
         </Menu>
         <div className="logo-cont">{collapsed ? <LogoSm /> : <Logo />}</div>
       </Sider>
@@ -72,7 +70,7 @@ const MainLayout = props => {
       >
         <Content className="main-content">
           <div className="header-banner" />
-          {children}
+          <div className="content-wrapper">{children}</div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
           MediCenter+ ©{new Date().getFullYear()} Created by{" "}
