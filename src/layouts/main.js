@@ -8,6 +8,8 @@ import {
   UploadOutlined
 } from "@ant-design/icons";
 import "./main.less";
+import { ReactComponent as Logo } from "../assets/logo.svg";
+import { ReactComponent as LogoSm } from "../assets/logo-sm.svg";
 
 const MainLayout = () => {
   const { Sider, Content, Footer } = Layout;
@@ -45,7 +47,7 @@ const MainLayout = () => {
             JV
           </Avatar>
           <p className="username -item-left">jvcarreon</p>
-          <div className="clearfix"></div>
+          <v className="clearfix" />
         </div>
         <Menu
           className="main-menu"
@@ -66,7 +68,7 @@ const MainLayout = () => {
             <span>nav 3</span>
           </Menu.Item>
         </Menu>
-        <div className="logo" />
+        <div className="logo-cont">{collapsed ? <LogoSm /> : <Logo />}</div>
       </Sider>
       <Layout
         className={`layout-has-fixed-sidebar ${
@@ -74,7 +76,7 @@ const MainLayout = () => {
         }`}
       >
         <Content className="main-content">
-          <div className="header-banner"></div>
+          <div className="header-banner" />
         </Content>
         <Footer style={{ textAlign: "center" }}>
           MediCenter+ ©{new Date().getFullYear()} Created by{" "}
