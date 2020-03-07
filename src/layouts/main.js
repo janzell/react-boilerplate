@@ -3,7 +3,7 @@ import { Avatar, Layout, Menu } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined,
+  DashboardOutlined,
   VideoCameraOutlined,
   UploadOutlined
 } from "@ant-design/icons";
@@ -20,9 +20,11 @@ const MainLayout = () => {
   return (
     <Layout>
       <Sider
+        theme="light"
         trigger={null}
         collapsible
         collapsed={collapsed}
+        collapsedWidth={56}
         className="main-sidebar fixed-sidebar"
       >
         <div className="sidebar-toggle-cont">
@@ -42,11 +44,17 @@ const MainLayout = () => {
           <Avatar className="sidebar-avatar" size="large">
             JV
           </Avatar>
-          <p className="username">jvcarreon</p>
+          <p className="username -item-left">jvcarreon</p>
+          <div className="clearfix"></div>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+        <Menu
+          className="main-menu"
+          theme="light"
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+        >
           <Menu.Item key="1">
-            <UserOutlined />
+            <DashboardOutlined />
             <span>nav 1</span>
           </Menu.Item>
           <Menu.Item key="2">
@@ -65,9 +73,14 @@ const MainLayout = () => {
           collapsed ? "sidebar-collapsed" : ""
         }`}
       >
-        <Content className="main-content">Content</Content>
+        <Content className="main-content">
+          <div className="header-banner"></div>
+        </Content>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
+          MediCenter+ ©{new Date().getFullYear()} Created by{" "}
+          <a href="https://www.jwits.co" target="_blank">
+            JWITS
+          </a>
         </Footer>
       </Layout>
     </Layout>
