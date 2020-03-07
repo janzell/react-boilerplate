@@ -4,17 +4,16 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   DashboardOutlined,
-  VideoCameraOutlined,
-  UploadOutlined
+  OrderedListOutlined
 } from "@ant-design/icons";
 import "./main.less";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as LogoSm } from "../assets/logo-sm.svg";
 
-const MainLayout = () => {
+const MainLayout = props => {
+  const { children } = props;
   const { Sider, Content, Footer } = Layout;
   const [collapsed, setCollapsed] = useState(false);
-
   const toggleSideBar = () => {
     setCollapsed(!collapsed);
   };
@@ -57,15 +56,11 @@ const MainLayout = () => {
         >
           <Menu.Item key="1">
             <DashboardOutlined />
-            <span>nav 1</span>
+            <span>Dashboard</span>
           </Menu.Item>
           <Menu.Item key="2">
-            <VideoCameraOutlined />
-            <span>nav 2</span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <UploadOutlined />
-            <span>nav 3</span>
+            <OrderedListOutlined />
+            <span>Queue</span>
           </Menu.Item>
         </Menu>
         <div className="logo-cont">{collapsed ? <LogoSm /> : <Logo />}</div>
@@ -77,6 +72,7 @@ const MainLayout = () => {
       >
         <Content className="main-content">
           <div className="header-banner" />
+          {children}
         </Content>
         <Footer style={{ textAlign: "center" }}>
           MediCenter+ ©{new Date().getFullYear()} Created by{" "}
