@@ -14,9 +14,7 @@ import {
 import routes from "../routes";
 
 const BaseLayout = props => {
-  console.log(props);
   let location = useLocation();
-  console.log(location);
   const { Sider, Content, Footer } = Layout;
   const [collapsed, setCollapsed] = useState(false);
   const toggleSideBar = () => {
@@ -76,7 +74,12 @@ const BaseLayout = props => {
           <Typography className="username -item-left">jvcarreon</Typography>
           <div className="clearfix" />
         </div>
-        <Menu className="main-menu" theme="light" mode="inline">
+        <Menu
+          className="main-menu"
+          theme="light"
+          mode="inline"
+          defaultSelectedKeys={[`info${location.pathname}`]}
+        >
           {renderMenuList()}
         </Menu>
         <div className="logo-cont">{collapsed ? <LogoSm /> : <Logo />}</div>
