@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { Avatar, Layout, Menu } from "antd";
+import { Avatar, Layout, Menu, Typography } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import "./main.less";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as LogoSm } from "../assets/logo-sm.svg";
-import { BrowserRouter as Router } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useLocation
+} from "react-router-dom";
 import routes from "../routes";
 
-const MainLayout = props => {
-  const { children } = props;
+const BaseLayout = props => {
+  console.log(props);
+  let location = useLocation();
+  console.log(location);
   const { Sider, Content, Footer } = Layout;
   const [collapsed, setCollapsed] = useState(false);
   const toggleSideBar = () => {
@@ -16,22 +24,37 @@ const MainLayout = props => {
   };
   const renderMenuList = () => {
     return routes.info.map(route => (
-      <Menu.Item key={route.path}>
-        <route.icon></route.icon>
+      <Menu.Item key={route.key}>
+        <route.icon />
         <span>{route.title}</span>
+        <Link to={route.path} />
       </Menu.Item>
     ));
   };
 
+  const renderRoutes = () => {
+    return routes.info.map((route, index) => (
+      // You can render a <Route> in as many places
+      // as you want in your app. It will render along
+      // with any other <Route>s that also match the URL.
+      // So, a sidebar or breadcrumbs or anything else
+      // that requires you to render multiple things
+      // in multiple places at the same URL is nothing
+      // more than multiple <Route>s.
+      <Route {...route} />
+    ));
+  };
+
   return (
-    <Layout>
+    <Layout hasSider={true}>
       <Sider
-        theme="light"
-        trigger={null}
         collapsible
+        trigger={null}
+        theme="light"
         collapsed={collapsed}
         collapsedWidth={56}
         className="main-sidebar fixed-sidebar"
+        breakpoint="sm"
       >
         <div className="sidebar-toggle-cont">
           {collapsed ? (
@@ -50,15 +73,10 @@ const MainLayout = props => {
           <Avatar className="sidebar-avatar" size="large">
             JV
           </Avatar>
-          <p className="username -item-left">jvcarreon</p>
-          <v className="clearfix" />
+          <Typography className="username -item-left">jvcarreon</Typography>
+          <div className="clearfix" />
         </div>
-        <Menu
-          className="main-menu"
-          theme="light"
-          mode="inline"
-          defaultSelectedKeys={["dashboard"]}
-        >
+        <Menu className="main-menu" theme="light" mode="inline">
           {renderMenuList()}
         </Menu>
         <div className="logo-cont">{collapsed ? <LogoSm /> : <Logo />}</div>
@@ -70,11 +88,17 @@ const MainLayout = props => {
       >
         <Content className="main-content">
           <div className="header-banner" />
-          <div className="content-wrapper">{children}</div>
+          <div className="content-wrapper">
+            <Switch>{renderRoutes()}</Switch>
+          </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
           MediCenter+ ©{new Date().getFullYear()} Created by{" "}
-          <a href="https://www.jwits.co" target="_blank">
+          <a
+            href="https://www.jwits.co"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             JWITS
           </a>
         </Footer>
@@ -83,4 +107,18 @@ const MainLayout = props => {
   );
 };
 
+/**
+ *  Wrap base layout with Router so react router hooks can be used
+ * @returns {*}
+ * @constructor
+ */
+const RouterCont = () => {
+  return (
+    <Router>
+      <BaseLayout />
+    </Router>
+  );
+};
+
+const MainLayout = RouterCont;
 export default MainLayout;

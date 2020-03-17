@@ -11,12 +11,14 @@ const routes = {
   // Information department paths
   info: [
     {
+      key: "info/dashboard",
       path: "/dashboard",
       title: "Dashboard",
       component: Dashboard,
       icon: DashboardOutlined
     },
     {
+      key: "info/queue",
       path: "/queue",
       title: "Queue",
       component: Queue,

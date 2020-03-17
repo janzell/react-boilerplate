@@ -1,16 +1,13 @@
 import React from "react";
-import MainLayout from "../../layouts/main";
 import { Row, Col, Typography } from "antd";
 
 const Dashboard = () => {
   return (
-    <MainLayout>
-      <Row>
-        <Col span={24}>
-          <Typography>Dashboard</Typography>
-        </Col>
-      </Row>
-    </MainLayout>
+    <Row>
+      <Col span={24}>
+        <Typography.Title>Dashboard</Typography.Title>
+      </Col>
+    </Row>
   );
 };
 export default Dashboard;
