@@ -16,7 +16,7 @@ const Queue = () => {
               </Title>
             </div>
             <div className="content-body">
-              <QueueNoCircle />
+              <QueueNoCircle number={35} />
             </div>
           </div>
         </Col>

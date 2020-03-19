@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Avatar, Layout, Menu, Typography } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import "./main.less";
-import { ReactComponent as Logo } from "../assets/logo.svg";
-import { ReactComponent as LogoSm } from "../assets/logo-sm.svg";
+import { ReactComponent as Logo } from "../assets/img/logo.svg";
+import { ReactComponent as LogoSm } from "../assets/img/logo-sm.svg";
 import {
   BrowserRouter as Router,
   Switch,
